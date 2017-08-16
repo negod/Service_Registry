@@ -1,0 +1,10 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0-SNAPSHOT",
+    "title" : "registry"
+  },
+  "host" : "192.168.2.140:8443",
+  "basePath" : "/registry-1.0-SNAPSHOT/rest",
+  "schemes" : [ "http", "https" ]
+}
