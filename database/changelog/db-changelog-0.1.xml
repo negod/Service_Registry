@@ -6,17 +6,6 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <!-- tables -->
-    <include file="\schema\tables\domain.xml"/>
     <include file="\schema\tables\registry.xml"/>
-    <include file="\schema\tables\user.xml"/>
-    <include file="\schema\tables\registry_detail.xml"/>
-    <include file="\schema\tables\registry_user.xml"/>
     
-    <!-- Initdata -->
-    <include file="\schema\initdata\domain_init.xml"/>
-    <include file="\schema\initdata\registry_init.xml"/>
-    <include file="\schema\initdata\user_init.xml"/>
-    <include file="\schema\initdata\registry_detail_init.xml"/>
-    <include file="\schema\initdata\registry_user_init.xml"/>
-	
 </databaseChangeLog>

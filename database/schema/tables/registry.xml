@@ -11,7 +11,7 @@
     <changeSet author="authorName" id="Create registry Table">
         
         <createTable tableName="registry" remarks="Table handling registry" >
-            
+            <!-- GENERIC ENTITY -->
             <column name="internalId" type="bigint" autoIncrement="true">
                 <constraints nullable="false" unique="true"/>
             </column>
@@ -22,26 +22,21 @@
                 <constraints nullable="false"/>
             </column>
             
-            <column name="name" type="varchar(36)" remarks="A name for the registryEntity">
+            <!-- ACTUAL ENTITY -->
+            <column name="serviceName" type="varchar(36)" remarks="The service name">
                 <constraints nullable="false" unique="true"/>
             </column>
             
-            <!-- ManyToOne Example -->
-            <column name="domain_id" type="varchar(36)" remarks="Referens till Domain"/>
-                
+            <column name="url" type="varchar(255)" remarks="The url to the service">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            
+            <column name="definition" type="varchar(3072)" remarks="The url to the service">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            
         </createTable>               
         
-        <!-- ManyToOne Example -->
-        <addForeignKeyConstraint baseColumnNames="domain_id"
-                                 baseTableName="registry"
-                                 constraintName="registry_domain_fk"                                 
-                                 referencedColumnNames="id"
-                                 referencedTableName="domain"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"/>
-        
-      
-
         <rollback>
             <dropTable tableName="registry" cascadeConstraints="true" />
         </rollback>

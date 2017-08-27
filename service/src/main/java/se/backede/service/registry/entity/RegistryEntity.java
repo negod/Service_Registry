@@ -67,46 +67,58 @@ public class RegistryEntity extends GenericEntity {
 
     @Analyzer(definition = "registry_customanalyzer")
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
-    @Column(name = "name", insertable = true, unique = true)
+    @Column(name = "serviceName", insertable = true, unique = true)
     @XmlElement
-    private String name;
-
-    @ContainedIn
+    private String serviceName;
+    
+    @Analyzer(definition = "registry_customanalyzer")
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
+    @Column(name = "url", insertable = true, unique = true)
     @XmlElement
-    @IndexedEmbedded(depth = 3)
-    @OneToOne(mappedBy = "registry", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private RegistryDetailEntity detail;
-
-    @ContainedIn
+    private String url;
+    
+    @Analyzer(definition = "registry_customanalyzer")
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
+    @Column(name = "definition", insertable = true, unique = true)
     @XmlElement
-    @IndexedEmbedded(depth = 3)
-    @JoinColumn(name = "domain_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private DomainEntity domain;
+    private String definition;
 
-    @ContainedIn
-    @XmlElement
-    @IndexedEmbedded(depth = 3)
-    @JoinTable(name = "registry_user",
-            joinColumns = {
-                @JoinColumn(name = "registry_id", referencedColumnName = "id")},
-            inverseJoinColumns = {
-                @JoinColumn(name = "user_id", referencedColumnName = "id")})
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "registry.users")
-    private Set<UserEntity> users = new HashSet<>();
-
-    //For OneToOne relation
-    @PrePersist
-    @Override
-    protected void onCreate() {
-        super.setUpdatedDate(new Date());
-        super.setId(UUID.randomUUID().toString());
-        if (detail != null) {
-            detail.setId(super.getId());
-            detail.setUpdatedDate(super.getUpdatedDate());
-            detail.setRegistry(this);
-        }
-    }
+//    @ContainedIn
+//    @XmlElement
+//    @IndexedEmbedded(depth = 3)
+//    @OneToOne(mappedBy = "registry", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+//    private RegistryDetailEntity detail;
+//
+//    @ContainedIn
+//    @XmlElement
+//    @IndexedEmbedded(depth = 3)
+//    @JoinColumn(serviceName = "domain_id", referencedColumnName = "id")
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    private DomainEntity domain;
+//
+//    @ContainedIn
+//    @XmlElement
+//    @IndexedEmbedded(depth = 3)
+//    @JoinTable(serviceName = "registry_user",
+//            joinColumns = {
+//                @JoinColumn(serviceName = "registry_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {
+//                @JoinColumn(serviceName = "user_id", referencedColumnName = "id")})
+//    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "registry.users")
+//    private Set<UserEntity> users = new HashSet<>();
+//
+//    //For OneToOne relation
+//    @PrePersist
+//    @Override
+//    protected void onCreate() {
+//        super.setUpdatedDate(new Date());
+//        super.setId(UUID.randomUUID().toString());
+//        if (detail != null) {
+//            detail.setId(super.getId());
+//            detail.setUpdatedDate(super.getUpdatedDate());
+//            detail.setRegistry(this);
+//        }
+//    }
 
 }

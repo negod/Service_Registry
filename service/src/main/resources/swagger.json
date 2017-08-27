@@ -6,5 +6,5 @@
   },
   "host" : "192.168.2.140:8443",
   "basePath" : "/registry-1.0-SNAPSHOT/rest",
-  "schemes" : [ "http", "https" ]
+  "schemes" : [ "https" ]
 }

@@ -1,12 +1,9 @@
 package se.backede.service.registry.boundary;
 
-import com.negod.generics.persistence.GenericDao;
 import io.swagger.annotations.Api;
 import se.backede.service.registry.control.RegistryDao;
-import se.backede.service.registry.entity.RegistryEntity;
 import javax.ejb.EJB;
 import javax.ws.rs.Path;
-import se.backede.webservice.service.RestService;
 
 /**
  *
@@ -14,14 +11,9 @@ import se.backede.webservice.service.RestService;
  */
 @Api
 @Path("/registry")
-public class Registry implements RestService<RegistryEntity> {
+public class Registry {
 
     @EJB
     RegistryDao dao;
-
-    @Override
-    public GenericDao getDao() {
-        return dao;
-    }
 
 }

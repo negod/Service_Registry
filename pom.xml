@@ -20,7 +20,7 @@
     <properties>
         <!-- IMPORTANT!! Set properties in your settings.xml => See database and service POM.xml for more instructions -->
         <!-- DB Default schema -->
-        <dbserver.dbName>dev</dbserver.dbName>
+        <dbserver.dbName>registry_dev</dbserver.dbName>
     </properties>	
     
     <build>

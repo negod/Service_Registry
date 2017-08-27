@@ -313,7 +313,7 @@
                     <plugin>
                         <groupId>com.github.kongchen</groupId>
                         <artifactId>swagger-maven-plugin</artifactId>
-                        <version>3.1.2</version>
+                        <version>3.1.1</version>
                         <configuration>
                             <apiSources>
                                 <apiSource>
@@ -322,8 +322,8 @@
                                         <version>${project.version}</version>
                                     </info>                           
                                     <springmvc>false</springmvc>
-                                    <locations>se.backede.archetype.control</locations>
-                                    <schemes>http,https</schemes>
+                                    <locations>se.backede.service.registry.boundary</locations>
+                                    <schemes>https</schemes>
                                     <host>${appserver.hostname}:${appserver.port}</host>
                                     <basePath>/${project.parent.artifactId}-${project.version}/rest</basePath>
                                     <swaggerDirectory>${basedir}/src/main/resources/</swaggerDirectory>
