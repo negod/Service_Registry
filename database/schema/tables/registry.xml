@@ -23,7 +23,7 @@
             </column>
             
             <!-- ACTUAL ENTITY -->
-            <column name="serviceName" type="varchar(36)" remarks="The service name">
+            <column name="serviceName" type="varchar(100)" remarks="The service name">
                 <constraints nullable="false" unique="true"/>
             </column>
             
@@ -31,8 +31,8 @@
                 <constraints nullable="false" unique="true"/>
             </column>
             
-            <column name="definition" type="varchar(3072)" remarks="The url to the service">
-                <constraints nullable="false" unique="true"/>
+            <column name="online" type="BOOLEAN" remarks="The url to the service">
+                <constraints nullable="false" unique="false"/>
             </column>
             
         </createTable>               

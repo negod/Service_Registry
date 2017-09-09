@@ -1,21 +1,9 @@
 package se.backede.service.registry.entity;
 
 import com.negod.generics.persistence.entity.GenericEntity;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
 import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,11 +20,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Analyzer;
 import org.hibernate.search.annotations.AnalyzerDef;
-import org.hibernate.search.annotations.ContainedIn;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.TokenFilterDef;
 import org.hibernate.search.annotations.TokenizerDef;
@@ -77,11 +63,10 @@ public class RegistryEntity extends GenericEntity {
     @XmlElement
     private String url;
     
-    @Analyzer(definition = "registry_customanalyzer")
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
-    @Column(name = "definition", insertable = true, unique = true)
+    @Column(name = "online", insertable = true, unique = true)
     @XmlElement
-    private String definition;
+    private Boolean online;
 
 //    @ContainedIn
 //    @XmlElement

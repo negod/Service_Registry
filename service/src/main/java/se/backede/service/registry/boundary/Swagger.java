@@ -11,6 +11,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+
 import lombok.extern.slf4j.Slf4j;
 import se.backede.service.registry.SwaggerExtractor;
 

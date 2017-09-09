@@ -14,7 +14,7 @@ import se.backede.webservice.security.AuthorizationDao;
  *
  * @author Joakim Backede ( joakim.backede@outlook.com )
  */
-@Path("/auth")
+@Path("/")
 public class Auth extends Authentication {
 
     @EJB
