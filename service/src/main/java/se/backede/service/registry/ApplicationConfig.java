@@ -29,6 +29,7 @@ public class ApplicationConfig extends Application {
         resources.add(se.backede.service.registry.boundary.Registry.class);
         resources.add(se.backede.service.registry.boundary.Swagger.class);
         resources.add(se.backede.service.registry.security.Auth.class);
+        resources.add(se.backede.webservice.registry.HealthCheck.class);
         resources.add(se.backede.webservice.security.AuthenticationFilter.class);
     }
 

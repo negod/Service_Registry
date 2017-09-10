@@ -53,7 +53,7 @@ public class RegistryEntity extends GenericEntity {
 
     @Analyzer(definition = "registry_customanalyzer")
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)
-    @Column(name = "serviceName", insertable = true, unique = true)
+    @Column(name = "servicename", insertable = true, unique = true)
     @XmlElement
     private String serviceName;
     

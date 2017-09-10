@@ -31,7 +31,7 @@
     <artifactId>service</artifactId>
     <packaging>war</packaging>
 
-    <name>service</name>
+    <name>${project.parent.artifactId}-service</name>
     
     <properties>
 
