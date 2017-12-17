@@ -24,18 +24,31 @@
             
             <!-- ACTUAL ENTITY -->
             <column name="serviceName" type="varchar(100)" remarks="The service name">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false"/>
             </column>
             
             <column name="url" type="varchar(255)" remarks="The url to the service">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="version" type="varchar(255)" remarks="The version of the service">
+                <constraints nullable="false"/>
             </column>
             
             <column name="online" type="BOOLEAN" remarks="The url to the service">
                 <constraints nullable="false" unique="false"/>
             </column>
             
-        </createTable>               
+        </createTable>   
+        
+        <addUniqueConstraint 
+            columnNames="serviceName, url, version"
+            constraintName="unique_service"
+            deferrable="true"
+            disabled="true"
+            initiallyDeferred="true"
+            tableName="registry"
+            tablespace="A String"/>            
         
         <rollback>
             <dropTable tableName="registry" cascadeConstraints="true" />
